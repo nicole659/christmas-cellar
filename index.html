@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Christmas in the Cellar · Oak · December 9, 2026</title>
+<meta name="description" content="Meet us downstairs. December 9, 2026, Charlotte." />
+<meta property="og:title" content="Christmas in the Cellar · Oak · December 9, 2026" />
+<meta property="og:description" content="Meet us downstairs. December 9, 2026, Charlotte." />
+<meta property="og:type" content="website" />
+<meta name="robots" content="noindex, nofollow" />
+<!-- Gold wax-seal favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Cpath%20d='M16%202.5c3%200%204.6%201.8%206.8%201.5%201.7-.2%202.9%201.7%202.4%203.3-.5%201.7%201.2%203%201%205%20-.2%201.9-2%202.6-2%204.5%200%201.8%201.6%203.2.8%205-0.7%201.7-2.9%201.6-4.2%202.8-1.2%201.2-1%203.4-2.8%203.9-1.7.5-3-1.2-4.8-1.2s-3.1%201.7-4.8%201.2c-1.8-.5-1.6-2.7-2.8-3.9-1.3-1.2-3.5-1.1-4.2-2.8-.8-1.8.8-3.2.8-5%200-1.9-1.8-2.6-2-4.5-.2-2%201.5-3.3%201-5-.5-1.6.7-3.5%202.4-3.3C11.4%204.3%2013%202.5%2016%202.5z'%20fill='%23B08D3E'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0E2433;
+    --navy-deep: #091A26;
+    --brass: #B08D3E;
+    --flame: #D9B36A;
+    --claret: #5E1F2A;
+    --claret-hi: #7A2A38;   /* brighter wine for accents that must read on navy */
+    --claret-lo: #4A1620;
+    --cream: #FBF8F1;
+
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --section-y: 120px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+  body {
+    background: var(--navy);
+    color: var(--cream);
+    font-family: var(--serif);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; }
+
+  /* ---------- Shared type utilities ---------- */
+  .eyebrow {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.34em;
+    text-indent: 0.34em;
+    text-transform: uppercase;
+    color: var(--brass);
+  }
+
+  .caps {
+    font-family: var(--sans);
+    font-weight: 400;
+    letter-spacing: 0.24em;
+    text-indent: 0.24em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--cream);
+  }
+
+  .serif-head {
+    font-family: var(--serif);
+    font-weight: 500;
+    line-height: 1.12;
+    font-size: clamp(30px, 5vw, 52px);
+    color: var(--cream);
+  }
+
+  .aside {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--flame);
+    font-size: clamp(19px, 2.6vw, 26px);
+  }
+
+  .dim { color: rgba(251, 248, 241, 0.72); }
+
+  /* ---------- Hairline & diamond divider ---------- */
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: min(320px, 62%);
+    margin: 28px auto;
+  }
+  .divider::before,
+  .divider::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: var(--brass);
+    opacity: 0.7;
+  }
+  .divider .diamond {
+    width: 5px;
+    height: 5px;
+    background: var(--brass);
+    transform: rotate(45deg);
+    margin: 0 12px;
+  }
+  /* claret accent variant */
+  .divider.claret-diamond .diamond {
+    background: var(--claret-hi);
+    box-shadow: 0 0 0 1px rgba(176, 141, 62, 0.55);
+  }
+
+  /* ---------- Section scaffolding ---------- */
+  section { position: relative; }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  .band {
+    padding: var(--section-y) 0;
+  }
+
+  /* Candle glow motif */
+  .glow {
+    position: absolute;
+    left: 50%;
+    bottom: -10%;
+    transform: translateX(-50%);
+    width: 140%;
+    height: 80%;
+    background: radial-gradient(ellipse 50% 100% at 50% 100%,
+        rgba(217, 179, 106, 0.25) 0%,
+        rgba(217, 179, 106, 0.12) 34%,
+        rgba(217, 179, 106, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .glow.breathe { animation: breathe 8s ease-in-out infinite; }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 1; }
+  }
+
+  .stack > * { position: relative; z-index: 1; }
+
+  .center { text-align: center; }
+  .center .divider { margin-left: auto; margin-right: auto; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    background: var(--navy-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  /* full-header video backdrop + slight blue overlay */
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 90% 80% at 50% 45%, rgba(14,36,51,0.28) 0%, rgba(14,36,51,0.46) 70%, rgba(9,26,38,0.6) 100%),
+      linear-gradient(180deg, rgba(14,36,51,0.34) 0%, rgba(14,36,51,0.3) 50%, rgba(9,26,38,0.5) 100%);
+  }
+  .hero-frame {
+    position: relative;
+    z-index: 2;
+    width: min(940px, 100%);
+    margin: 0 auto;
+    padding: clamp(38px, 5vw, 56px) clamp(28px, 6vw, 76px) clamp(56px, 7vw, 76px);
+    border: 1px solid var(--brass);
+    box-shadow: 0 0 0 6px rgba(9,26,38,0.72), 0 0 0 7px rgba(176, 141, 62, 0.35);
+    background: rgba(9, 26, 38, 0.34);
+    backdrop-filter: blur(2px);
+    text-align: center;
+  }
+
+  /* OAK wordmark */
+  .oak-logo { display: block; margin: 0 auto 22px; width: min(210px, 52%); height: auto; }
+
+  .lockup { margin: 4px 0 4px; }
+  .lockup .l1 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: clamp(24px, 5vw, 40px);
+    letter-spacing: 0.34em;
+    text-indent: 0.34em;
+    color: var(--cream);
+    display: block;
+  }
+  .lockup .l2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--flame);
+    font-size: clamp(20px, 3.4vw, 30px);
+    display: block;
+    margin: 2px 0;
+  }
+  .lockup .l3 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: clamp(24px, 5vw, 40px);
+    letter-spacing: 0.55em;
+    text-indent: 0.55em;
+    color: var(--cream);
+    display: block;
+  }
+
+  .hero .aside { margin-top: 10px; }
+  .hero .caps.date { margin: 22px 0 0; font-size: clamp(10px, 1.6vw, 13px); letter-spacing: 0.28em; text-indent: 0.28em; }
+
+  /* claret accent bar in the header */
+  .claret-rule {
+    display: block;
+    width: 68px;
+    height: 3px;
+    margin: 20px auto 0;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--claret) 0%, var(--claret-hi) 50%, var(--claret) 100%);
+  }
+
+  /* Hero seal (gold PNG) on the frame flap */
+  .hero-seal {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) translateY(44%);
+    width: 132px;
+    height: auto;
+  }
+
+  .scroll-cue {
+    margin-top: 34px;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-indent: 0.3em;
+    text-transform: uppercase;
+    color: var(--brass);
+  }
+
+
+  /* ---------- THE NIGHT (Main Event) ---------- */
+  .night {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 56px;      /* tightened toward the itinerary */
+    background: var(--navy-deep);
+  }
+  .section-photo {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+  .cellar-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(180deg,
+        rgba(9, 26, 38, 0.9) 0%,
+        rgba(9, 26, 38, 0.64) 46%,
+        rgba(9, 26, 38, 0.94) 100%);
+  }
+  .night .wrap { position: relative; z-index: 1; }
+  .night .aside { margin-top: 8px; }
+  .night .addr { margin-top: 26px; line-height: 2.1; }
+  .night .addr a { color: var(--flame); text-decoration: none; border-bottom: 1px solid rgba(217,179,106,.4); padding-bottom: 1px; }
+  .night .addr a:hover { border-bottom-color: var(--flame); }
+  .night .closing { margin-top: 22px; font-style: italic; font-size: clamp(17px, 2vw, 20px); }
+
+  /* ---------- ITINERARY / TRAVEL (cream section, tombstones) ---------- */
+  .itinerary { padding-top: 48px; padding-bottom: 22px; background: var(--cream); color: var(--navy); }
+  .itin-intro {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    line-height: 2;
+    color: #3a4650;
+    max-width: 640px;
+    margin: 0 auto 54px;
+    text-transform: uppercase;
+  }
+  .itin-intro b { color: var(--claret); font-weight: 600; }
+
+  /* claret divider used on cream sections */
+  .divider.on-cream { margin: 60px auto 0; }
+  .divider.on-cream::before, .divider.on-cream::after { background: var(--claret); opacity: 0.5; }
+  .divider.on-cream .diamond { background: var(--claret); }
+
+  .arch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    align-items: stretch;
+  }
+  .arch {
+    border: 1px solid rgba(94, 31, 42, 0.42);
+    border-radius: 120px 120px 4px 4px;
+    padding: 54px 28px 34px;
+    text-align: center;
+    background: rgba(94, 31, 42, 0.02);
+    display: flex;
+    flex-direction: column;
+  }
+  .arch .day {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-indent: 0.28em;
+    text-transform: uppercase;
+    color: var(--claret);
+  }
+  .arch .title {
+    font-family: var(--serif);
+    font-size: 27px;
+    font-weight: 500;
+    margin: 12px 0 14px;
+    color: var(--navy);
+  }
+  .arch .meta {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    line-height: 1.9;
+    color: #4a5560;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .arch .meta a { color: var(--claret); text-decoration: none; border-bottom: 1px solid rgba(94,31,42,.4); }
+  .arch .quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--claret);
+    margin-top: auto;
+    padding-top: 8px;
+  }
+
+  /* ---------- HOTEL (light section) ---------- */
+  .hotel {
+    padding-top: 40px;
+    background: var(--cream);
+    color: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .hotel .eyebrow { color: var(--claret); }
+  .hotel .serif-head { color: var(--navy); }
+  .hotel .body {
+    font-family: var(--serif);
+    font-size: clamp(19px, 2.2vw, 23px);
+    line-height: 1.55;
+    color: #2a3742;
+    max-width: 620px;
+    margin: 20px auto 0;
+  }
+  .hotel .caps { color: var(--navy); margin-top: 26px; }
+  .hotel .divider::before, .hotel .divider::after { background: var(--claret); opacity: .55; }
+  .hotel .divider .diamond { background: var(--claret); }
+  .hotel .room-note {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--claret);
+    font-size: clamp(17px, 2vw, 20px);
+    margin-top: 22px;
+  }
+
+  /* ---------- RSVP (cream invitation card on navy) ---------- */
+  .rsvp {
+    background: var(--navy-deep);
+    position: relative;
+    overflow: hidden;
+  }
+  .rsvp .rsvp-photo-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(180deg, rgba(9,26,38,0.86) 0%, rgba(9,26,38,0.72) 50%, rgba(9,26,38,0.92) 100%);
+  }
+  .rsvp-card {
+    position: relative;
+    z-index: 1;
+    width: min(580px, 100%);
+    margin: 0 auto;
+    background: var(--cream);
+    color: var(--navy);
+    border: 1px solid rgba(94, 31, 42, 0.25);
+    padding: clamp(38px, 6vw, 60px) clamp(26px, 5vw, 52px) clamp(44px, 6vw, 60px);
+    text-align: center;
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.5);
+  }
+  .rsvp .eyebrow { color: var(--claret); }
+  .rsvp .serif-head { color: var(--navy); }
+  .rsvp-card .caps { color: var(--navy); }
+
+  form.rsvp-form { text-align: left; margin-top: 38px; }
+
+  .field { margin-bottom: 30px; }
+  .field .lab {
+    display: block;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--claret);
+    margin-bottom: 12px;
+  }
+  .field input[type="text"] {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--claret);
+    color: var(--navy);
+    font-family: var(--serif);
+    font-size: 20px;
+    padding: 8px 2px;
+    outline: none;
+    transition: border-color .2s ease;
+  }
+  .field input[type="text"]::placeholder { color: rgba(94, 31, 42, 0.4); font-style: italic; }
+  .field input[type="text"]:focus { border-bottom-color: var(--brass); border-bottom-width: 2px; }
+
+  .pills { display: flex; gap: 14px; }
+  .pill { flex: 1; position: relative; }
+  .pill input { position: absolute; opacity: 0; pointer-events: none; }
+  .pill label {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--claret);
+    border-radius: 999px 999px 6px 6px;
+    padding: 16px 10px 12px;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--claret);
+    transition: all .2s ease;
+    background: transparent;
+  }
+  .pill input:checked + label {
+    background: var(--claret);
+    border-color: var(--claret);
+    color: var(--cream);
+    box-shadow: 0 8px 18px rgba(94, 31, 42, 0.28);
+  }
+  .pill input:focus-visible + label { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+  /* jacket size chips */
+  .size-group { margin-top: 14px; }
+  .size-cat {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--claret);
+    opacity: 0.85;
+    margin-bottom: 9px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { position: relative; }
+  .chip input { position: absolute; opacity: 0; pointer-events: none; }
+  .chip label {
+    display: block;
+    min-width: 46px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 12px;
+    border: 1px solid var(--claret);
+    border-radius: 6px;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--claret);
+    transition: all .18s ease;
+  }
+  .chip input:checked + label { background: var(--claret); color: var(--cream); }
+  .chip input:focus-visible + label { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+  .field.hidden { display: none; }
+
+  .err {
+    display: block;
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--claret);
+    margin-top: 8px;
+    min-height: 0;
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .err.show { opacity: 1; }
+  .field.invalid input[type="text"] { border-bottom-color: #a3382f; }
+
+  /* honeypot */
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  .submit-wrap { text-align: center; margin-top: 42px; }
+  .seal-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 120px;
+    height: 138px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .seal-btn .seal-svg {
+    width: 112px;
+    height: auto;
+    display: block;
+    transition: transform .14s ease, filter .14s ease;
+    transform-origin: center;
+    filter: drop-shadow(0 3px 7px rgba(0,0,0,.22));
+  }
+  .seal-btn:hover .seal-svg { transform: translateY(-2px); filter: drop-shadow(0 8px 14px rgba(0,0,0,.32)); }
+  .seal-btn.pressing .seal-svg { animation: sealPress 230ms ease; }
+  @keyframes sealPress {
+    0% { transform: translateY(0) scale(1); filter: drop-shadow(0 6px 12px rgba(0,0,0,.35)); }
+    39% { transform: translateY(2px) scale(.96); filter: drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+    100% { transform: translateY(0) scale(1); filter: drop-shadow(0 6px 12px rgba(0,0,0,.35)); }
+  }
+  .seal-btn.squish .seal-blob { animation: waxSquish 160ms ease; transform-box: fill-box; transform-origin: center; }
+  @keyframes waxSquish {
+    0% { transform: scale(1,1); }
+    50% { transform: scale(1.02,.98); }
+    100% { transform: scale(1,1); }
+  }
+  .seal-btn .seal-caption {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-indent: 0.3em;
+    text-transform: uppercase;
+    color: var(--claret);
+    margin-top: 10px;
+  }
+
+  /* Success state */
+  .success { display: none; text-align: center; margin-top: 30px; }
+  .success.show { display: block; }
+  .success .seal-svg { width: 128px; height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 4px 10px rgba(0,0,0,.25)); }
+  .success .sealed-line {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(20px, 3vw, 26px);
+    color: var(--claret);
+    margin: 0 0 26px;
+  }
+  .success .success-date { margin-top: 20px; }
+
+  /* Spotify playlist line (below the form) */
+  .playlist-note {
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(94, 31, 42, 0.2);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(17px, 2.2vw, 21px);
+    color: var(--navy);
+    text-align: center;
+    line-height: 1.5;
+  }
+  .playlist-note .spotify-ico {
+    width: 20px;
+    height: 20px;
+    vertical-align: -4px;
+    margin-right: 7px;
+  }
+  .playlist-note a {
+    color: var(--claret);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(94, 31, 42, 0.45);
+    transition: border-color .2s ease;
+  }
+  .playlist-note a:hover { border-bottom-color: var(--claret); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--navy-deep);
+    text-align: center;
+    padding: 64px 24px 72px;
+  }
+  footer .ring-o { width: 40px; height: 40px; margin: 0 auto 22px; display: block; }
+  footer .caps { font-size: 10px; letter-spacing: 0.28em; text-indent: 0.28em; }
+  footer .foot-italic {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--flame);
+    font-size: 19px;
+    margin-top: 16px;
+  }
+
+  /* ---------- Scroll reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .3s ease, transform .3s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 820px) {
+    :root { --section-y: 72px; }
+    .night { padding-bottom: 40px; }
+    .itinerary { padding-top: 30px; }
+    .arch-grid { grid-template-columns: 1fr; gap: 22px; max-width: 420px; margin: 0 auto; }
+    .arch { border-radius: 160px 160px 4px 4px; }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 40px 14px; }
+    .hero-frame { padding: 40px 22px 52px; }
+    .wrap { padding: 0 22px; }
+    /* side gutters so the cream RSVP card doesn't touch the screen edges */
+    .rsvp { padding-left: 16px; padding-right: 16px; }
+    /* comfortable tap targets */
+    .chip label { min-width: 48px; padding: 12px 14px; }
+    .pill label { padding: 18px 10px 14px; }
+    .size-cat { margin-bottom: 10px; }
+    .field { margin-bottom: 26px; }
+  }
+
+  @media (max-width: 420px) {
+    .hero-frame { box-shadow: 0 0 0 5px var(--navy-deep), 0 0 0 6px rgba(176,141,62,.35); }
+    .lockup .l3 { letter-spacing: 0.42em; text-indent: 0.42em; }
+    .lockup .l1 { letter-spacing: 0.28em; text-indent: 0.28em; }
+    .oak-logo { width: min(180px, 60%); }
+    .chips { gap: 7px; }
+    .chip label { min-width: 44px; padding: 11px 10px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .glow.breathe { animation: none; opacity: 0.92; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SVG DEFS (gold wax gradient) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="waxGrad" cx="42%" cy="38%" r="72%">
+      <stop offset="0%" stop-color="#E6CB84" />
+      <stop offset="52%" stop-color="#B08D3E" />
+      <stop offset="100%" stop-color="#7A6120" />
+    </radialGradient>
+  </defs>
+</svg>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="assets/cellar-tunnel.jpg">
+    <source src="assets/header.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="glow breathe"></div>
+  <div class="hero-frame">
+    <!-- OAK wordmark (spans the header width) -->
+    <svg class="oak-logo" viewBox="0 0 527 256" xmlns="http://www.w3.org/2000/svg" aria-label="Oak" fill="var(--cream)">
+      <path d="M131 255.523C112.286 255.523 94.8913 252.404 78.8162 246.166C62.981 239.688 49.0652 230.69 37.0688 219.174C25.3123 207.417 16.1951 193.861 9.71706 178.506C3.23902 162.911 0 145.996 0 127.761C0 109.527 3.23902 92.732 9.71706 77.3766C16.1951 61.7813 25.3123 48.2254 37.0688 36.7089C49.0652 24.9525 62.981 15.9552 78.8162 9.71707C94.8913 3.23903 112.286 0 131 0C149.715 0 166.99 3.23903 182.825 9.71707C198.9 15.9552 212.816 24.8325 224.572 36.349C236.329 47.8655 245.446 61.4214 251.924 77.0167C258.642 92.3721 262.001 109.287 262.001 127.761C262.001 146.236 258.642 163.271 251.924 178.866C245.446 194.221 236.329 207.657 224.572 219.174C212.816 230.69 198.9 239.688 182.825 246.166C166.99 252.404 149.715 255.523 131 255.523ZM131 238.608C147.076 238.608 161.951 235.849 175.627 230.33C189.303 224.812 201.179 217.014 211.256 206.937C221.333 196.86 229.131 185.104 234.649 171.668C240.407 158.232 243.286 143.597 243.286 127.761C243.286 111.686 240.407 97.0507 234.649 83.8547C229.131 70.4187 221.333 58.6623 211.256 48.5853C201.179 38.5084 189.303 30.7107 175.627 25.1924C161.951 19.6741 147.076 16.9149 131 16.9149C114.925 16.9149 100.05 19.6741 86.3739 25.1924C72.698 30.7107 60.7016 38.5084 50.3848 48.5853C40.3078 58.6623 32.3902 70.4187 26.632 83.8547C21.1136 97.0507 18.3545 111.686 18.3545 127.761C18.3545 143.597 21.1136 158.232 26.632 171.668C32.3902 185.104 40.3078 196.86 50.3848 206.937C60.7016 217.014 72.698 224.812 86.3739 230.33C100.05 235.849 114.925 238.608 131 238.608Z" />
+      <path d="M424.922 211.508L423.968 188.221L499.746 110.152H521.506L462.907 171.997L452.218 183.831L424.922 211.508ZM408.125 243.767V110.152H427.213V243.767H408.125ZM502.8 243.767L448.018 180.014L460.807 165.889L525.133 243.767H502.8Z" />
+      <path d="M250 243.767L310.508 110.152H329.405L390.104 243.767H370.062L316.044 120.841H323.679L269.66 243.767H250ZM275.769 210.363L280.922 195.093H356.128L361.664 210.363H275.769Z" />
+    </svg>
+
+    <div class="lockup">
+      <span class="l1">CHRISTMAS</span>
+      <span class="l2">in the</span>
+      <span class="l3">CELLAR</span>
+    </div>
+
+    <div class="divider claret-diamond"><span class="diamond"></span></div>
+
+    <p class="aside">Meet us downstairs.</p>
+    <p class="caps date">Wednesday · December 9 · 2026 · 5 Until 8 O'Clock</p>
+    <span class="claret-rule" aria-hidden="true"></span>
+
+    <p class="scroll-cue">Ask for the Cellar ↓</p>
+
+    <!-- Gold wax seal on the frame flap -->
+    <img class="hero-seal" src="assets/seal-gold.png" alt="" aria-hidden="true" />
+  </div>
+</header>
+
+<!-- ============ SEAL SYMBOL (gold wax + Oak "O" emboss) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="waxSealSymbol" viewBox="0 0 120 120">
+    <!-- irregular hand-poured blob -->
+    <path class="seal-blob" fill="url(#waxGrad)"
+      d="M60 8
+         C72 6 74 15 84 18
+         C94 21 99 17 104 26
+         C108 34 102 40 105 50
+         C108 59 116 60 114 70
+         C112 79 103 78 99 87
+         C95 96 99 103 89 106
+         C80 109 76 101 66 103
+         C57 105 55 114 45 112
+         C36 110 39 101 31 96
+         C23 91 15 95 12 85
+         C9 76 17 72 16 62
+         C15 52 7 50 10 40
+         C13 31 22 34 27 26
+         C32 18 28 10 38 8
+         C47 6 48 10 60 8 Z"
+      style="filter: drop-shadow(0 3px 5px rgba(0,0,0,.35));" />
+    <!-- wax drips -->
+    <path fill="url(#waxGrad)" d="M99 87 c4 4 7 12 3 16 c-4 4-9-1-8-7 c1-4 3-6 5-9 Z" opacity="0.96" />
+    <path fill="url(#waxGrad)" d="M31 96 c-3 3-4 9-1 11 c3 2 6-2 6-6 c0-3-2-4-5-5 Z" opacity="0.9" />
+
+    <!-- Oak "O" pressed into the wax: shadow copy (down-right) -->
+    <path fill-rule="evenodd" fill="#6E5320" transform="translate(34.6 34.25) scale(0.2)"
+      d="M131 255.523C112.286 255.523 94.8913 252.404 78.8162 246.166C62.981 239.688 49.0652 230.69 37.0688 219.174C25.3123 207.417 16.1951 193.861 9.71706 178.506C3.23902 162.911 0 145.996 0 127.761C0 109.527 3.23902 92.732 9.71706 77.3766C16.1951 61.7813 25.3123 48.2254 37.0688 36.7089C49.0652 24.9525 62.981 15.9552 78.8162 9.71707C94.8913 3.23903 112.286 0 131 0C149.715 0 166.99 3.23903 182.825 9.71707C198.9 15.9552 212.816 24.8325 224.572 36.349C236.329 47.8655 245.446 61.4214 251.924 77.0167C258.642 92.3721 262.001 109.287 262.001 127.761C262.001 146.236 258.642 163.271 251.924 178.866C245.446 194.221 236.329 207.657 224.572 219.174C212.816 230.69 198.9 239.688 182.825 246.166C166.99 252.404 149.715 255.523 131 255.523ZM131 238.608C147.076 238.608 161.951 235.849 175.627 230.33C189.303 224.812 201.179 217.014 211.256 206.937C221.333 196.86 229.131 185.104 234.649 171.668C240.407 158.232 243.286 143.597 243.286 127.761C243.286 111.686 240.407 97.0507 234.649 83.8547C229.131 70.4187 221.333 58.6623 211.256 48.5853C201.179 38.5084 189.303 30.7107 175.627 25.1924C161.951 19.6741 147.076 16.9149 131 16.9149C114.925 16.9149 100.05 19.6741 86.3739 25.1924C72.698 30.7107 60.7016 38.5084 50.3848 48.5853C40.3078 58.6623 32.3902 70.4187 26.632 83.8547C21.1136 97.0507 18.3545 111.686 18.3545 127.761C18.3545 143.597 21.1136 158.232 26.632 171.668C32.3902 185.104 40.3078 196.86 50.3848 206.937C60.7016 217.014 72.698 224.812 86.3739 230.33C100.05 235.849 114.925 238.608 131 238.608Z" />
+    <!-- highlight copy (up-left) -->
+    <path fill-rule="evenodd" fill="#F0DCA4" opacity="0.55" transform="translate(33.0 32.65) scale(0.2)"
+      d="M131 255.523C112.286 255.523 94.8913 252.404 78.8162 246.166C62.981 239.688 49.0652 230.69 37.0688 219.174C25.3123 207.417 16.1951 193.861 9.71706 178.506C3.23902 162.911 0 145.996 0 127.761C0 109.527 3.23902 92.732 9.71706 77.3766C16.1951 61.7813 25.3123 48.2254 37.0688 36.7089C49.0652 24.9525 62.981 15.9552 78.8162 9.71707C94.8913 3.23903 112.286 0 131 0C149.715 0 166.99 3.23903 182.825 9.71707C198.9 15.9552 212.816 24.8325 224.572 36.349C236.329 47.8655 245.446 61.4214 251.924 77.0167C258.642 92.3721 262.001 109.287 262.001 127.761C262.001 146.236 258.642 163.271 251.924 178.866C245.446 194.221 236.329 207.657 224.572 219.174C212.816 230.69 198.9 239.688 182.825 246.166C166.99 252.404 149.715 255.523 131 255.523ZM131 238.608C147.076 238.608 161.951 235.849 175.627 230.33C189.303 224.812 201.179 217.014 211.256 206.937C221.333 196.86 229.131 185.104 234.649 171.668C240.407 158.232 243.286 143.597 243.286 127.761C243.286 111.686 240.407 97.0507 234.649 83.8547C229.131 70.4187 221.333 58.6623 211.256 48.5853C201.179 38.5084 189.303 30.7107 175.627 25.1924C161.951 19.6741 147.076 16.9149 131 16.9149C114.925 16.9149 100.05 19.6741 86.3739 25.1924C72.698 30.7107 60.7016 38.5084 50.3848 48.5853C40.3078 58.6623 32.3902 70.4187 26.632 83.8547C21.1136 97.0507 18.3545 111.686 18.3545 127.761C18.3545 143.597 21.1136 158.232 26.632 171.668C32.3902 185.104 40.3078 196.86 50.3848 206.937C60.7016 217.014 72.698 224.812 86.3739 230.33C100.05 235.849 114.925 238.608 131 238.608Z" />
+
+    <!-- curved embossed text -->
+    <path id="sealTextPath" d="M60 24 a35 35 0 1 1 -0.1 0" fill="none" />
+    <text font-family="Montserrat, sans-serif" font-size="6.4" font-weight="600" letter-spacing="1.4" fill="#6E5320">
+      <textPath href="#sealTextPath" startOffset="4%" class="seal-curve-text">CHRISTMAS IN THE CELLAR · MMXXVI</textPath>
+    </text>
+    <text font-family="Montserrat, sans-serif" font-size="6.4" font-weight="600" letter-spacing="1.4" fill="#F0DCA4" opacity="0.5" transform="translate(-0.6 -0.6)">
+      <textPath href="#sealTextPath" startOffset="4%" class="seal-curve-text-hi">CHRISTMAS IN THE CELLAR · MMXXVI</textPath>
+    </text>
+  </symbol>
+</svg>
+
+<!-- ============ THE NIGHT (Main Event) ============ -->
+<section class="band night">
+  <!-- Wine-cellar photo backdrop + navy overlay -->
+  <div class="section-photo" style="background-image:url('assets/cellar-room.jpg')"></div>
+  <div class="cellar-overlay"></div>
+
+  <div class="wrap center stack reveal">
+    <p class="eyebrow">The Main Event</p>
+    <h2 class="serif-head">The Wine Cellar at Del Frisco's</h2>
+    <p class="aside">The first glass is poured at five.</p>
+    <div class="divider"><span class="diamond"></span></div>
+    <p class="caps addr">
+      Del Frisco's Double Eagle Steakhouse ·
+      <a href="https://www.google.com/maps/search/?api=1&query=Del+Frisco%27s+Double+Eagle+Steakhouse+4725+Piedmont+Row+Dr+Charlotte+NC" target="_blank" rel="noopener">4725 Piedmont Row Dr, Charlotte, NC</a>
+      <br />Wednesday, December 9, 2026 · 5:00–8:00 PM
+    </p>
+    <p class="closing dim">Dinner, a private bar, and a toast or two, all underground.</p>
+  </div>
+</section>
+
+<!-- ============ ITINERARY (tombstones) ============ -->
+<section class="band itinerary">
+  <div class="wrap stack reveal">
+    <p class="itin-intro center">
+      <b>Travel</b>: Plan to arrive Tuesday 12/8, join us for happy hour, celebrate on the 9th, and depart the 10th.
+    </p>
+    <div class="arch-grid">
+      <article class="arch">
+        <p class="day">Tuesday 12/8</p>
+        <h3 class="title">Arrive &amp; warm up</h3>
+        <p class="meta">
+          Casual happy hour<br />Legion Brewing SouthPark<br />
+          <a href="https://www.google.com/maps/search/?api=1&query=Legion+Brewing+SouthPark+5610+Carnegie+Blvd+Charlotte+NC" target="_blank" rel="noopener">5610 Carnegie Blvd</a><br />
+          5–7 PM EST
+        </p>
+        <p class="quote">"Come as you land. First round's on Oak."</p>
+      </article>
+      <article class="arch">
+        <p class="day">Wednesday 12/9</p>
+        <h3 class="title">The Cellar</h3>
+        <p class="meta">
+          The main event<br />Del Frisco's<br />5–8 PM
+        </p>
+        <p class="quote">"Meet us downstairs."</p>
+      </article>
+      <article class="arch">
+        <p class="day">Thursday 12/10</p>
+        <h3 class="title">Depart</h3>
+        <p class="meta">
+          Fly home
+        </p>
+        <p class="quote">"Sleep in, fly home, tell no one what Gary toasted."</p>
+      </article>
+    </div>
+    <div class="divider on-cream"><span class="diamond"></span></div>
+  </div>
+</section>
+
+<!-- ============ HOTEL ============ -->
+<section class="band hotel">
+  <div class="wrap center stack reveal">
+    <p class="eyebrow">Where You're Staying</p>
+    <h2 class="serif-head">Renaissance Charlotte SouthPark</h2>
+    <p class="body">Walkable to the happy hour, the office, and the party. You won't need a car once you land.</p>
+    <div class="divider"><span class="diamond"></span></div>
+    <p class="caps">5501 Carnegie Blvd · Charlotte, NC</p>
+    <p class="room-note">Room block details to follow. Hotel information coming soon.</p>
+  </div>
+</section>
+
+<!-- ============ RSVP ============ -->
+<section class="band rsvp">
+  <div class="section-photo" style="background-image:url('assets/cellar-bottles.jpg')"></div>
+  <div class="rsvp-photo-overlay"></div>
+  <div class="glow"></div>
+  <div class="rsvp-card reveal">
+    <p class="eyebrow">The Cellar List</p>
+    <h2 class="serif-head">Save your seat by the candlelight.</h2>
+    <p class="caps" style="margin-top:16px;">Kindly RSVP by October 31</p>
+
+    <form class="rsvp-form" id="rsvpForm" novalidate>
+      <!-- honeypot -->
+      <div class="hp" aria-hidden="true">
+        <label>Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+      </div>
+
+      <div class="field" id="f-name">
+        <label class="lab" for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Your name" autocomplete="name" required />
+        <span class="err" id="e-name">Kindly tell us your name.</span>
+      </div>
+
+      <div class="field">
+        <span class="lab">Bringing a plus one?</span>
+        <div class="pills" role="radiogroup" aria-label="Bringing a plus one?">
+          <span class="pill"><input type="radio" name="plusOne" id="po-yes" value="Yes" /><label for="po-yes">Yes</label></span>
+          <span class="pill"><input type="radio" name="plusOne" id="po-no" value="No" /><label for="po-no">No</label></span>
+        </div>
+        <span class="err" id="e-po">Let us know if a guest is joining.</span>
+      </div>
+
+      <div class="field hidden" id="f-poname">
+        <label class="lab" for="plusOneName">Name of Plus One</label>
+        <input type="text" id="plusOneName" name="plusOneName" placeholder="Their name" autocomplete="off" />
+        <span class="err" id="e-poname">Kindly tell us their name.</span>
+      </div>
+
+      <div class="field hidden" id="f-pojacket">
+        <span class="lab">Jacket Size for Plus One</span>
+        <div class="size-group">
+          <p class="size-cat">Women's</p>
+          <div class="chips" role="radiogroup" aria-label="Plus one jacket size: Women's">
+            <span class="chip"><input type="radio" name="plusOneJacketSize" id="pjw-s" value="Women's S" /><label for="pjw-s">S</label></span>
+            <span class="chip"><input type="radio" name="plusOneJacketSize" id="pjw-m" value="Women's M" /><label for="pjw-m">M</label></span>
+            <span class="chip"><input type="radio" name="plusOneJacketSize" id="pjw-l" value="Women's L" /><label for="pjw-l">L</label></span>
+            <span class="chip"><input type="radio" name="plusOneJacketSize" id="pjw-xl" value="Women's XL" /><label for="pjw-xl">XL</label></span>
+            <span class="chip"><input type="radio" name="plusOneJacketSize" id="pjw-xxl" value="Women's XXL" /><label for="pjw-xxl">XXL</label></span>
+          </div>
+        </div>
+        <div class="size-group">
+          <p class="size-cat">Men's</p>
+          <div class="chips" role="radiogroup" aria-label="Plus one jacket size: Men's">
+            <span class="chip"><input type="radio" name="plusOneJacketSize" id="pjm-s" value="Men's S" /><label for="pjm-s">S</label></span>
+            <span class="chip"><input type="radio" name="plusOneJacketSize" id="pjm-m" value="Men's M" /><label for="pjm-m">M</label></span>
+            <span class="chip"><input type="radio" name="plusOneJacketSize" id="pjm-l" value="Men's L" /><label for="pjm-l">L</label></span>
+            <span class="chip"><input type="radio" name="plusOneJacketSize" id="pjm-xl" value="Men's XL" /><label for="pjm-xl">XL</label></span>
+            <span class="chip"><input type="radio" name="plusOneJacketSize" id="pjm-xxl" value="Men's XXL" /><label for="pjm-xxl">XXL</label></span>
+            <span class="chip"><input type="radio" name="plusOneJacketSize" id="pjm-3xl" value="Men's 3XL" /><label for="pjm-3xl">3XL</label></span>
+          </div>
+        </div>
+        <span class="err" id="e-pojacket">Kindly choose your guest's jacket size.</span>
+      </div>
+
+      <div class="field">
+        <span class="lab">Hotel room needed?</span>
+        <div class="pills" role="radiogroup" aria-label="Hotel room needed?">
+          <span class="pill"><input type="radio" name="hotelRoom" id="hr-yes" value="Yes" /><label for="hr-yes">Yes</label></span>
+          <span class="pill"><input type="radio" name="hotelRoom" id="hr-no" value="No" /><label for="hr-no">No</label></span>
+        </div>
+        <span class="err" id="e-hr">Let us know about a room.</span>
+      </div>
+
+      <div class="field">
+        <span class="lab">Attending Tuesday happy hour?</span>
+        <div class="pills" role="radiogroup" aria-label="Attending Tuesday happy hour?">
+          <span class="pill"><input type="radio" name="attendingHH" id="hh-yes" value="Yes" /><label for="hh-yes">Yes</label></span>
+          <span class="pill"><input type="radio" name="attendingHH" id="hh-no" value="No" /><label for="hh-no">No</label></span>
+        </div>
+        <span class="err" id="e-hh">Let us know about Tuesday.</span>
+      </div>
+
+      <div class="field">
+        <span class="lab">Jacket Size</span>
+        <div class="size-group">
+          <p class="size-cat">Women's</p>
+          <div class="chips" role="radiogroup" aria-label="Jacket size: Women's">
+            <span class="chip"><input type="radio" name="jacketSize" id="jw-s" value="Women's S" /><label for="jw-s">S</label></span>
+            <span class="chip"><input type="radio" name="jacketSize" id="jw-m" value="Women's M" /><label for="jw-m">M</label></span>
+            <span class="chip"><input type="radio" name="jacketSize" id="jw-l" value="Women's L" /><label for="jw-l">L</label></span>
+            <span class="chip"><input type="radio" name="jacketSize" id="jw-xl" value="Women's XL" /><label for="jw-xl">XL</label></span>
+            <span class="chip"><input type="radio" name="jacketSize" id="jw-xxl" value="Women's XXL" /><label for="jw-xxl">XXL</label></span>
+          </div>
+        </div>
+        <div class="size-group">
+          <p class="size-cat">Men's</p>
+          <div class="chips" role="radiogroup" aria-label="Jacket size: Men's">
+            <span class="chip"><input type="radio" name="jacketSize" id="jm-s" value="Men's S" /><label for="jm-s">S</label></span>
+            <span class="chip"><input type="radio" name="jacketSize" id="jm-m" value="Men's M" /><label for="jm-m">M</label></span>
+            <span class="chip"><input type="radio" name="jacketSize" id="jm-l" value="Men's L" /><label for="jm-l">L</label></span>
+            <span class="chip"><input type="radio" name="jacketSize" id="jm-xl" value="Men's XL" /><label for="jm-xl">XL</label></span>
+            <span class="chip"><input type="radio" name="jacketSize" id="jm-xxl" value="Men's XXL" /><label for="jm-xxl">XXL</label></span>
+            <span class="chip"><input type="radio" name="jacketSize" id="jm-3xl" value="Men's 3XL" /><label for="jm-3xl">3XL</label></span>
+          </div>
+        </div>
+        <span class="err" id="e-jacket">Kindly choose a jacket size.</span>
+      </div>
+
+      <div class="submit-wrap">
+        <button type="submit" class="seal-btn" id="sealBtn" aria-label="Seal it, submit RSVP">
+          <img class="seal-svg" src="assets/seal-gold.png" alt="" aria-hidden="true" />
+          <span class="seal-caption">Seal It</span>
+        </button>
+      </div>
+    </form>
+
+    <div class="success" id="successState" aria-live="polite">
+      <p class="sealed-line">Sealed. See you in the cellar.</p>
+      <img class="seal-svg" src="assets/seal-gold.png" alt="" aria-hidden="true" />
+      <p class="caps success-date">12.9.26</p>
+    </div>
+
+    <p class="playlist-note">
+      <svg class="spotify-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1DB954" d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.57-1.04 8.5-.59 11.66 1.34.35.22.46.68.25 1.03Zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 1 1-.54-1.8c4.37-1.32 9.79-.68 13.5 1.6.44.27.58.85.3 1.29Zm.13-3.4C15.3 8.34 8.77 8.12 5.05 9.25a1.12 1.12 0 1 1-.65-2.15c4.27-1.3 11.48-1.05 15.6 1.4a1.12 1.12 0 1 1-1.15 1.93Z"/></svg>
+      Get in the mood with our
+      <a href="https://open.spotify.com/playlist/0quPvXo3NbUgZNuf7tKF0V?si=ng2oo_mUTvOI2A3sWYoaQA" target="_blank" rel="noopener">Spotify party playlist</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <svg class="ring-o" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="40" fill="none" stroke="var(--brass)" stroke-width="3"
+      stroke-dasharray="215 36" stroke-linecap="round" transform="rotate(-40 50 50)" />
+  </svg>
+  <p class="caps">Christmas in the Cellar · Oak · MMXXVI</p>
+  <p class="foot-italic">Ask for the cellar.</p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Header video: pause for reduced motion, otherwise nudge autoplay along */
+  var heroVideo = document.querySelector(".hero-video");
+  if (heroVideo) {
+    if (reduceMotion) {
+      heroVideo.removeAttribute("autoplay");
+      heroVideo.pause();
+    } else {
+      var tryPlay = function () { var p = heroVideo.play(); if (p && p.catch) p.catch(function () {}); };
+      tryPlay();
+      heroVideo.addEventListener("canplay", tryPlay, { once: true });
+      var onGesture = function () {
+        tryPlay();
+        window.removeEventListener("pointerdown", onGesture);
+        window.removeEventListener("scroll", onGesture);
+      };
+      window.addEventListener("pointerdown", onGesture, { passive: true });
+      window.addEventListener("scroll", onGesture, { passive: true });
+    }
+  }
+
+  /* ---------- Scroll reveal ---------- */
+  var reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.14 });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  /* ---------- Plus-one conditional field ---------- */
+  var poYes = document.getElementById("po-yes");
+  var poNo = document.getElementById("po-no");
+  var poNameField = document.getElementById("f-poname");
+  var poNameInput = document.getElementById("plusOneName");
+  var poJacketField = document.getElementById("f-pojacket");
+  function syncPlusOne() {
+    if (poYes.checked) {
+      poNameField.classList.remove("hidden");
+      poJacketField.classList.remove("hidden");
+      poNameInput.setAttribute("required", "required");
+    } else {
+      poNameField.classList.add("hidden");
+      poJacketField.classList.add("hidden");
+      poNameInput.removeAttribute("required");
+      poNameInput.value = "";
+      form.querySelectorAll('input[name="plusOneJacketSize"]').forEach(function (r) { r.checked = false; });
+      clearErr("f-poname", "e-poname");
+      var ep = document.getElementById("e-pojacket"); if (ep) ep.classList.remove("show");
+    }
+  }
+  poYes.addEventListener("change", syncPlusOne);
+  poNo.addEventListener("change", syncPlusOne);
+
+  /* ---------- Validation helpers ---------- */
+  function showErr(fieldId, errId) {
+    var f = document.getElementById(fieldId);
+    if (f) f.classList.add("invalid");
+    var e = document.getElementById(errId);
+    if (e) e.classList.add("show");
+  }
+  function clearErr(fieldId, errId) {
+    var f = document.getElementById(fieldId);
+    if (f) f.classList.remove("invalid");
+    var e = document.getElementById(errId);
+    if (e) e.classList.remove("show");
+  }
+
+  /* ---------- Form config ---------- */
+  var FORM_ENDPOINT = "REPLACE_WITH_FORMSPREE_URL";
+  var form = document.getElementById("rsvpForm");
+  var sealBtn = document.getElementById("sealBtn");
+  var successState = document.getElementById("successState");
+
+  function radioValue(name) {
+    var el = form.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : "";
+  }
+
+  function validate() {
+    var ok = true;
+    ["e-name","e-po","e-poname","e-pojacket","e-hr","e-hh","e-jacket"].forEach(function (id) {
+      var e = document.getElementById(id); if (e) e.classList.remove("show");
+    });
+    ["f-name","f-poname"].forEach(function (id) {
+      var f = document.getElementById(id); if (f) f.classList.remove("invalid");
+    });
+
+    if (!document.getElementById("fullName").value.trim()) { showErr("f-name","e-name"); ok = false; }
+    if (!radioValue("plusOne")) { document.getElementById("e-po").classList.add("show"); ok = false; }
+    if (poYes.checked && !poNameInput.value.trim()) { showErr("f-poname","e-poname"); ok = false; }
+    if (poYes.checked && !radioValue("plusOneJacketSize")) { document.getElementById("e-pojacket").classList.add("show"); ok = false; }
+    if (!radioValue("hotelRoom")) { document.getElementById("e-hr").classList.add("show"); ok = false; }
+    if (!radioValue("attendingHH")) { document.getElementById("e-hh").classList.add("show"); ok = false; }
+    if (!radioValue("jacketSize")) { document.getElementById("e-jacket").classList.add("show"); ok = false; }
+    return ok;
+  }
+
+  /* clear individual errors as the user fixes them */
+  document.getElementById("fullName").addEventListener("input", function () {
+    if (this.value.trim()) clearErr("f-name","e-name");
+  });
+  poNameInput.addEventListener("input", function () {
+    if (this.value.trim()) clearErr("f-poname","e-poname");
+  });
+  ["plusOne","hotelRoom","attendingHH","jacketSize","plusOneJacketSize"].forEach(function (name) {
+    form.querySelectorAll('input[name="' + name + '"]').forEach(function (r) {
+      r.addEventListener("change", function () {
+        var map = { plusOne: "e-po", hotelRoom: "e-hr", attendingHH: "e-hh", jacketSize: "e-jacket", plusOneJacketSize: "e-pojacket" };
+        var e = document.getElementById(map[name]); if (e) e.classList.remove("show");
+      });
+    });
+  });
+
+  function pressSeal() {
+    if (reduceMotion) return;
+    sealBtn.classList.add("pressing");
+    setTimeout(function () { sealBtn.classList.add("squish"); }, 90);
+    setTimeout(function () { sealBtn.classList.remove("pressing", "squish"); }, 400);
+  }
+
+  function showSuccess() {
+    form.style.display = "none";
+    successState.classList.add("show");
+    successState.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+  }
+
+  function buildPayload() {
+    return {
+      fullName: document.getElementById("fullName").value.trim(),
+      plusOne: radioValue("plusOne"),
+      plusOneName: poYes.checked ? poNameInput.value.trim() : "",
+      plusOneJacketSize: poYes.checked ? radioValue("plusOneJacketSize") : "",
+      hotelRoom: radioValue("hotelRoom"),
+      attendingHH: radioValue("attendingHH"),
+      jacketSize: radioValue("jacketSize"),
+      timestamp: new Date().toISOString()
+    };
+  }
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    if (form.querySelector('input[name="company"]').value) { return; }
+    if (!validate()) {
+      var firstErr = form.querySelector(".err.show");
+      if (firstErr && !reduceMotion) firstErr.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    pressSeal();
+    var payload = buildPayload();
+    var delay = reduceMotion ? 0 : 420;
+
+    var hasEndpoint = FORM_ENDPOINT && FORM_ENDPOINT.indexOf("REPLACE_WITH") === -1;
+    if (hasEndpoint) {
+      // Google Apps Script web app: send as a "simple" text/plain request (no CORS
+      // preflight). The response is opaque under no-cors, so we optimistically
+      // confirm once the request completes; the script still records the row.
+      fetch(FORM_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      }).then(function () {
+        setTimeout(showSuccess, delay);
+      }).catch(function () {
+        console.log("RSVP (POST failed, logged locally):", payload);
+        setTimeout(showSuccess, delay);
+      });
+    } else {
+      console.log("RSVP (no endpoint set):", payload);
+      setTimeout(showSuccess, delay);
+    }
+  });
+})();
+</script>
+</body>
+</html>
