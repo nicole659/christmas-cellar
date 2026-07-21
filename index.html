@@ -16,14 +16,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --navy: #0E2433;
-    --navy-deep: #091A26;
-    --brass: #B08D3E;
-    --flame: #D9B36A;
-    --claret: #5E1F2A;
-    --claret-hi: #7A2A38;   /* brighter wine for accents that must read on navy */
-    --claret-lo: #4A1620;
-    --cream: #FBF8F1;
+    --navy: #0E2433;        /* ink — primary text */
+    --ink-soft: #47535E;    /* secondary text */
+    --brass: #B08D3E;       /* gold foil — labels, rules, borders */
+    --flame: #C79A46;
+    --claret: #5E1F2A;      /* wine — small accents, "spoken" lines */
+    --claret-hi: #7A2A38;
+    --cream: #FBF8F1;       /* warm paper — base */
+    --paper: #FFFFFF;       /* bright paper — alternating sections/cards */
 
     --serif: "Cormorant Garamond", Georgia, serif;
     --sans: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -33,13 +33,11 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
-
-  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
   body {
-    background: var(--navy);
-    color: var(--cream);
+    background: var(--cream);
+    color: var(--navy);
     font-family: var(--serif);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -52,7 +50,7 @@
   /* ---------- Shared type utilities ---------- */
   .eyebrow {
     font-family: var(--sans);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 11px;
     letter-spacing: 0.34em;
     text-indent: 0.34em;
@@ -67,7 +65,7 @@
     text-indent: 0.24em;
     text-transform: uppercase;
     font-size: 12px;
-    color: var(--cream);
+    color: var(--navy);
   }
 
   .serif-head {
@@ -75,25 +73,24 @@
     font-weight: 500;
     line-height: 1.12;
     font-size: clamp(30px, 5vw, 52px);
-    color: var(--cream);
+    color: var(--navy);
   }
 
   .aside {
     font-family: var(--serif);
     font-style: italic;
     font-weight: 500;
-    color: var(--flame);
+    color: var(--claret);
     font-size: clamp(19px, 2.6vw, 26px);
   }
 
-  .dim { color: rgba(251, 248, 241, 0.72); }
+  .dim { color: var(--ink-soft); }
 
   /* ---------- Hairline & diamond divider ---------- */
   .divider {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0;
     width: min(320px, 62%);
     margin: 28px auto;
   }
@@ -103,161 +100,94 @@
     height: 1px;
     flex: 1;
     background: var(--brass);
-    opacity: 0.7;
+    opacity: 0.55;
   }
   .divider .diamond {
     width: 5px;
     height: 5px;
-    background: var(--brass);
+    background: var(--claret);
     transform: rotate(45deg);
     margin: 0 12px;
   }
-  /* claret accent variant */
-  .divider.claret-diamond .diamond {
-    background: var(--claret-hi);
-    box-shadow: 0 0 0 1px rgba(176, 141, 62, 0.55);
-  }
+  .center .divider { margin-left: auto; margin-right: auto; }
 
   /* ---------- Section scaffolding ---------- */
   section { position: relative; }
-
-  .wrap {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 28px;
-  }
-
-  .band {
-    padding: var(--section-y) 0;
-  }
-
-  /* Candle glow motif */
-  .glow {
-    position: absolute;
-    left: 50%;
-    bottom: -10%;
-    transform: translateX(-50%);
-    width: 140%;
-    height: 80%;
-    background: radial-gradient(ellipse 50% 100% at 50% 100%,
-        rgba(217, 179, 106, 0.25) 0%,
-        rgba(217, 179, 106, 0.12) 34%,
-        rgba(217, 179, 106, 0) 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .glow.breathe { animation: breathe 8s ease-in-out infinite; }
-  @keyframes breathe {
-    0%, 100% { opacity: 0.85; }
-    50% { opacity: 1; }
-  }
-
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  .band { padding: var(--section-y) 0; }
+  .paper { background: var(--paper); }
   .stack > * { position: relative; z-index: 1; }
-
   .center { text-align: center; }
-  .center .divider { margin-left: auto; margin-right: auto; }
 
-  /* ---------- HERO ---------- */
+  /* ---------- HERO (cream invitation) ---------- */
   .hero {
     min-height: 100vh;
     min-height: 100svh;
-    background: var(--navy-deep);
+    background: var(--cream);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 48px 20px;
-    position: relative;
-    overflow: hidden;
-  }
-  /* full-header video backdrop + slight blue overlay */
-  .hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background:
-      radial-gradient(ellipse 90% 80% at 50% 45%, rgba(14,36,51,0.28) 0%, rgba(14,36,51,0.46) 70%, rgba(9,26,38,0.6) 100%),
-      linear-gradient(180deg, rgba(14,36,51,0.34) 0%, rgba(14,36,51,0.3) 50%, rgba(9,26,38,0.5) 100%);
+    padding: 56px 22px;
   }
   .hero-frame {
     position: relative;
-    z-index: 2;
-    width: min(940px, 100%);
+    width: min(760px, 100%);
     margin: 0 auto;
-    padding: clamp(38px, 5vw, 56px) clamp(28px, 6vw, 76px) clamp(56px, 7vw, 76px);
+    padding: clamp(46px, 6vw, 74px) clamp(26px, 6vw, 74px) clamp(60px, 7vw, 82px);
+    background: var(--paper);
     border: 1px solid var(--brass);
-    box-shadow: 0 0 0 6px rgba(9,26,38,0.72), 0 0 0 7px rgba(176, 141, 62, 0.35);
-    background: rgba(9, 26, 38, 0.34);
-    backdrop-filter: blur(2px);
+    box-shadow: 0 0 0 6px var(--cream), 0 0 0 7px rgba(14, 36, 51, 0.16), 0 30px 70px rgba(14, 36, 51, 0.07);
     text-align: center;
   }
 
-  /* OAK wordmark */
-  .oak-logo { display: block; margin: 0 auto 22px; width: min(210px, 52%); height: auto; }
+  .oak-logo { display: block; margin: 0 auto 26px; width: min(196px, 50%); height: auto; }
 
-  .lockup { margin: 4px 0 4px; }
-  .lockup .l1 {
+  .lockup { margin: 4px 0; }
+  .lockup .l1, .lockup .l3 {
     font-family: var(--sans);
     font-weight: 500;
     font-size: clamp(24px, 5vw, 40px);
-    letter-spacing: 0.34em;
-    text-indent: 0.34em;
-    color: var(--cream);
+    color: var(--navy);
     display: block;
   }
+  .lockup .l1 { letter-spacing: 0.34em; text-indent: 0.34em; }
+  .lockup .l3 { letter-spacing: 0.55em; text-indent: 0.55em; }
   .lockup .l2 {
     font-family: var(--serif);
     font-style: italic;
     font-weight: 500;
-    color: var(--flame);
+    color: var(--claret);
     font-size: clamp(20px, 3.4vw, 30px);
     display: block;
     margin: 2px 0;
   }
-  .lockup .l3 {
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: clamp(24px, 5vw, 40px);
-    letter-spacing: 0.55em;
-    text-indent: 0.55em;
-    color: var(--cream);
-    display: block;
-  }
 
   .hero .aside { margin-top: 10px; }
-  .hero .caps.date { margin: 22px 0 0; font-size: clamp(10px, 1.6vw, 13px); letter-spacing: 0.28em; text-indent: 0.28em; }
+  .hero .caps.date { margin: 22px 0 0; font-size: clamp(10px, 1.6vw, 13px); letter-spacing: 0.28em; text-indent: 0.28em; color: var(--navy); }
 
-  /* claret accent bar in the header */
   .claret-rule {
     display: block;
-    width: 68px;
-    height: 3px;
+    width: 66px;
+    height: 2px;
     margin: 20px auto 0;
     border-radius: 2px;
-    background: linear-gradient(90deg, var(--claret) 0%, var(--claret-hi) 50%, var(--claret) 100%);
+    background: linear-gradient(90deg, rgba(94,31,42,0) 0%, var(--claret) 50%, rgba(94,31,42,0) 100%);
   }
 
-  /* Hero seal (gold PNG) on the frame flap */
+  /* Gold wax seal on the frame flap */
   .hero-seal {
     position: absolute;
     left: 50%;
     bottom: 0;
-    transform: translateX(-50%) translateY(44%);
-    width: 132px;
+    transform: translateX(-50%) translateY(46%);
+    width: 128px;
     height: auto;
   }
 
   .scroll-cue {
     margin-top: 34px;
     font-family: var(--sans);
-    font-weight: 400;
+    font-weight: 500;
     font-size: 10px;
     letter-spacing: 0.3em;
     text-indent: 0.3em;
@@ -265,56 +195,42 @@
     color: var(--brass);
   }
 
-
   /* ---------- THE NIGHT (Main Event) ---------- */
-  .night {
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 56px;      /* tightened toward the itinerary */
-    background: var(--navy-deep);
-  }
-  .section-photo {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-  }
-  .cellar-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background: linear-gradient(180deg,
-        rgba(9, 26, 38, 0.9) 0%,
-        rgba(9, 26, 38, 0.64) 46%,
-        rgba(9, 26, 38, 0.94) 100%);
-  }
-  .night .wrap { position: relative; z-index: 1; }
   .night .aside { margin-top: 8px; }
-  .night .addr { margin-top: 26px; line-height: 2.1; }
-  .night .addr a { color: var(--flame); text-decoration: none; border-bottom: 1px solid rgba(217,179,106,.4); padding-bottom: 1px; }
-  .night .addr a:hover { border-bottom-color: var(--flame); }
-  .night .closing { margin-top: 22px; font-style: italic; font-size: clamp(17px, 2vw, 20px); }
+  .night .addr { margin-top: 24px; line-height: 2.1; color: var(--navy); }
+  .night .addr a { color: var(--claret); text-decoration: none; border-bottom: 1px solid rgba(94,31,42,.4); padding-bottom: 1px; }
+  .night .addr a:hover { border-bottom-color: var(--claret); }
+  .night .closing { margin-top: 20px; font-style: italic; font-size: clamp(17px, 2vw, 20px); color: var(--ink-soft); }
 
-  /* ---------- ITINERARY / TRAVEL (cream section, tombstones) ---------- */
-  .itinerary { padding-top: 48px; padding-bottom: 22px; background: var(--cream); color: var(--navy); }
+  /* a single contained "window into the cellar" (video), arched like a cellar door */
+  .event-window {
+    position: relative;
+    width: min(600px, 100%);
+    margin: 44px auto 0;
+    aspect-ratio: 16 / 10;
+    border-radius: 220px 220px 8px 8px;
+    overflow: hidden;
+    border: 1px solid var(--brass);
+    box-shadow: 0 24px 60px rgba(14, 36, 51, 0.16);
+  }
+  .event-window video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ---------- ITINERARY / TRAVEL (tombstones) ---------- */
+  .itinerary { padding-top: 48px; padding-bottom: 22px; }
   .itin-intro {
     font-family: var(--sans);
     font-weight: 400;
     font-size: 12px;
     letter-spacing: 0.16em;
     line-height: 2;
-    color: #3a4650;
+    color: var(--ink-soft);
     max-width: 640px;
     margin: 0 auto 54px;
     text-transform: uppercase;
   }
   .itin-intro b { color: var(--claret); font-weight: 600; }
 
-  /* claret divider used on cream sections */
   .divider.on-cream { margin: 60px auto 0; }
-  .divider.on-cream::before, .divider.on-cream::after { background: var(--claret); opacity: 0.5; }
-  .divider.on-cream .diamond { background: var(--claret); }
 
   .arch-grid {
     display: grid;
@@ -323,11 +239,12 @@
     align-items: stretch;
   }
   .arch {
-    border: 1px solid rgba(94, 31, 42, 0.42);
+    border: 1px solid rgba(176, 141, 62, 0.5);
     border-radius: 120px 120px 4px 4px;
     padding: 54px 28px 34px;
     text-align: center;
-    background: rgba(94, 31, 42, 0.02);
+    background: var(--paper);
+    box-shadow: 0 14px 34px rgba(14, 36, 51, 0.05);
     display: flex;
     flex-direction: column;
   }
@@ -338,7 +255,7 @@
     letter-spacing: 0.28em;
     text-indent: 0.28em;
     text-transform: uppercase;
-    color: var(--claret);
+    color: var(--brass);
   }
   .arch .title {
     font-family: var(--serif);
@@ -353,7 +270,7 @@
     font-size: 10.5px;
     letter-spacing: 0.12em;
     line-height: 1.9;
-    color: #4a5560;
+    color: var(--ink-soft);
     text-transform: uppercase;
     margin-bottom: 16px;
   }
@@ -367,27 +284,17 @@
     padding-top: 8px;
   }
 
-  /* ---------- HOTEL (light section) ---------- */
-  .hotel {
-    padding-top: 40px;
-    background: var(--cream);
-    color: var(--navy);
-    position: relative;
-    overflow: hidden;
-  }
-  .hotel .eyebrow { color: var(--claret); }
-  .hotel .serif-head { color: var(--navy); }
+  /* ---------- HOTEL ---------- */
+  .hotel { padding-top: 40px; }
   .hotel .body {
     font-family: var(--serif);
     font-size: clamp(19px, 2.2vw, 23px);
     line-height: 1.55;
-    color: #2a3742;
+    color: var(--ink-soft);
     max-width: 620px;
     margin: 20px auto 0;
   }
-  .hotel .caps { color: var(--navy); margin-top: 26px; }
-  .hotel .divider::before, .hotel .divider::after { background: var(--claret); opacity: .55; }
-  .hotel .divider .diamond { background: var(--claret); }
+  .hotel .caps { margin-top: 26px; }
   .hotel .room-note {
     font-family: var(--serif);
     font-style: italic;
@@ -396,33 +303,18 @@
     margin-top: 22px;
   }
 
-  /* ---------- RSVP (cream invitation card on navy) ---------- */
-  .rsvp {
-    background: var(--navy-deep);
-    position: relative;
-    overflow: hidden;
-  }
-  .rsvp .rsvp-photo-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background: linear-gradient(180deg, rgba(9,26,38,0.86) 0%, rgba(9,26,38,0.72) 50%, rgba(9,26,38,0.92) 100%);
-  }
+  /* ---------- RSVP (light invitation card) ---------- */
+  .rsvp { background: var(--cream); }
   .rsvp-card {
-    position: relative;
-    z-index: 1;
     width: min(580px, 100%);
     margin: 0 auto;
-    background: var(--cream);
+    background: var(--paper);
     color: var(--navy);
-    border: 1px solid rgba(94, 31, 42, 0.25);
+    border: 1px solid rgba(176, 141, 62, 0.45);
     padding: clamp(38px, 6vw, 60px) clamp(26px, 5vw, 52px) clamp(44px, 6vw, 60px);
     text-align: center;
-    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 24px 60px rgba(14, 36, 51, 0.1);
   }
-  .rsvp .eyebrow { color: var(--claret); }
-  .rsvp .serif-head { color: var(--navy); }
-  .rsvp-card .caps { color: var(--navy); }
 
   form.rsvp-form { text-align: left; margin-top: 38px; }
 
@@ -430,11 +322,11 @@
   .field .lab {
     display: block;
     font-family: var(--sans);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 10px;
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--claret);
+    color: var(--navy);
     margin-bottom: 12px;
   }
   .field input[type="text"] {
@@ -449,7 +341,7 @@
     outline: none;
     transition: border-color .2s ease;
   }
-  .field input[type="text"]::placeholder { color: rgba(94, 31, 42, 0.4); font-style: italic; }
+  .field input[type="text"]::placeholder { color: rgba(71, 83, 94, 0.5); font-style: italic; }
   .field input[type="text"]:focus { border-bottom-color: var(--brass); border-bottom-width: 2px; }
 
   .pills { display: flex; gap: 14px; }
@@ -475,7 +367,7 @@
     background: var(--claret);
     border-color: var(--claret);
     color: var(--cream);
-    box-shadow: 0 8px 18px rgba(94, 31, 42, 0.28);
+    box-shadow: 0 8px 18px rgba(94, 31, 42, 0.22);
   }
   .pill input:focus-visible + label { outline: 2px solid var(--brass); outline-offset: 2px; }
 
@@ -488,7 +380,7 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--claret);
-    opacity: 0.85;
+    opacity: 0.9;
     margin-bottom: 9px;
   }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -522,14 +414,12 @@
     text-transform: uppercase;
     color: var(--claret);
     margin-top: 8px;
-    min-height: 0;
     opacity: 0;
     transition: opacity .2s ease;
   }
   .err.show { opacity: 1; }
   .field.invalid input[type="text"] { border-bottom-color: #a3382f; }
 
-  /* honeypot */
   .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
   .submit-wrap { text-align: center; margin-top: 42px; }
@@ -552,20 +442,14 @@
     display: block;
     transition: transform .14s ease, filter .14s ease;
     transform-origin: center;
-    filter: drop-shadow(0 3px 7px rgba(0,0,0,.22));
+    filter: drop-shadow(0 3px 7px rgba(14,36,51,.18));
   }
-  .seal-btn:hover .seal-svg { transform: translateY(-2px); filter: drop-shadow(0 8px 14px rgba(0,0,0,.32)); }
+  .seal-btn:hover .seal-svg { transform: translateY(-2px); filter: drop-shadow(0 8px 14px rgba(14,36,51,.26)); }
   .seal-btn.pressing .seal-svg { animation: sealPress 230ms ease; }
   @keyframes sealPress {
-    0% { transform: translateY(0) scale(1); filter: drop-shadow(0 6px 12px rgba(0,0,0,.35)); }
-    39% { transform: translateY(2px) scale(.96); filter: drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
-    100% { transform: translateY(0) scale(1); filter: drop-shadow(0 6px 12px rgba(0,0,0,.35)); }
-  }
-  .seal-btn.squish .seal-blob { animation: waxSquish 160ms ease; transform-box: fill-box; transform-origin: center; }
-  @keyframes waxSquish {
-    0% { transform: scale(1,1); }
-    50% { transform: scale(1.02,.98); }
-    100% { transform: scale(1,1); }
+    0% { transform: translateY(0) scale(1); }
+    39% { transform: translateY(2px) scale(.96); }
+    100% { transform: translateY(0) scale(1); }
   }
   .seal-btn .seal-caption {
     font-family: var(--sans);
@@ -581,7 +465,7 @@
   /* Success state */
   .success { display: none; text-align: center; margin-top: 30px; }
   .success.show { display: block; }
-  .success .seal-svg { width: 128px; height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 4px 10px rgba(0,0,0,.25)); }
+  .success .seal-svg { width: 128px; height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 4px 10px rgba(14,36,51,.2)); }
   .success .sealed-line {
     font-family: var(--serif);
     font-style: italic;
@@ -591,11 +475,11 @@
   }
   .success .success-date { margin-top: 20px; }
 
-  /* Spotify playlist line (below the form) */
+  /* Spotify playlist line */
   .playlist-note {
     margin-top: 36px;
     padding-top: 28px;
-    border-top: 1px solid rgba(94, 31, 42, 0.2);
+    border-top: 1px solid rgba(176, 141, 62, 0.35);
     font-family: var(--serif);
     font-style: italic;
     font-size: clamp(17px, 2.2vw, 21px);
@@ -603,12 +487,7 @@
     text-align: center;
     line-height: 1.5;
   }
-  .playlist-note .spotify-ico {
-    width: 20px;
-    height: 20px;
-    vertical-align: -4px;
-    margin-right: 7px;
-  }
+  .playlist-note .spotify-ico { width: 20px; height: 20px; vertical-align: -4px; margin-right: 7px; }
   .playlist-note a {
     color: var(--claret);
     text-decoration: none;
@@ -619,16 +498,17 @@
 
   /* ---------- FOOTER ---------- */
   footer {
-    background: var(--navy-deep);
+    background: var(--paper);
     text-align: center;
     padding: 64px 24px 72px;
+    color: var(--navy);
   }
   footer .ring-o { width: 40px; height: 40px; margin: 0 auto 22px; display: block; }
   footer .caps { font-size: 10px; letter-spacing: 0.28em; text-indent: 0.28em; }
   footer .foot-italic {
     font-family: var(--serif);
     font-style: italic;
-    color: var(--flame);
+    color: var(--claret);
     font-size: 19px;
     margin-top: 16px;
   }
@@ -640,7 +520,6 @@
   /* ---------- Responsive ---------- */
   @media (max-width: 820px) {
     :root { --section-y: 72px; }
-    .night { padding-bottom: 40px; }
     .itinerary { padding-top: 30px; }
     .arch-grid { grid-template-columns: 1fr; gap: 22px; max-width: 420px; margin: 0 auto; }
     .arch { border-radius: 160px 160px 4px 4px; }
@@ -648,11 +527,9 @@
 
   @media (max-width: 600px) {
     .hero { padding: 40px 14px; }
-    .hero-frame { padding: 40px 22px 52px; }
+    .hero-frame { padding: 42px 22px 56px; }
     .wrap { padding: 0 22px; }
-    /* side gutters so the cream RSVP card doesn't touch the screen edges */
     .rsvp { padding-left: 16px; padding-right: 16px; }
-    /* comfortable tap targets */
     .chip label { min-width: 48px; padding: 12px 14px; }
     .pill label { padding: 18px 10px 14px; }
     .size-cat { margin-bottom: 10px; }
@@ -660,10 +537,9 @@
   }
 
   @media (max-width: 420px) {
-    .hero-frame { box-shadow: 0 0 0 5px var(--navy-deep), 0 0 0 6px rgba(176,141,62,.35); }
     .lockup .l3 { letter-spacing: 0.42em; text-indent: 0.42em; }
     .lockup .l1 { letter-spacing: 0.28em; text-indent: 0.28em; }
-    .oak-logo { width: min(180px, 60%); }
+    .oak-logo { width: min(170px, 58%); }
     .chips { gap: 7px; }
     .chip label { min-width: 44px; padding: 11px 10px; }
   }
@@ -671,33 +547,16 @@
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; scroll-behavior: auto !important; }
     .reveal { opacity: 1; transform: none; transition: none; }
-    .glow.breathe { animation: none; opacity: 0.92; }
   }
 </style>
 </head>
 <body>
 
-<!-- ============ SVG DEFS (gold wax gradient) ============ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <radialGradient id="waxGrad" cx="42%" cy="38%" r="72%">
-      <stop offset="0%" stop-color="#E6CB84" />
-      <stop offset="52%" stop-color="#B08D3E" />
-      <stop offset="100%" stop-color="#7A6120" />
-    </radialGradient>
-  </defs>
-</svg>
-
 <!-- ============ HERO ============ -->
 <header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline poster="assets/cellar-tunnel.jpg">
-    <source src="assets/header.mp4" type="video/mp4" />
-  </video>
-  <div class="hero-overlay"></div>
-  <div class="glow breathe"></div>
   <div class="hero-frame">
-    <!-- OAK wordmark (spans the header width) -->
-    <svg class="oak-logo" viewBox="0 0 527 256" xmlns="http://www.w3.org/2000/svg" aria-label="Oak" fill="var(--cream)">
+    <!-- OAK wordmark -->
+    <svg class="oak-logo" viewBox="0 0 527 256" xmlns="http://www.w3.org/2000/svg" aria-label="Oak" fill="var(--navy)">
       <path d="M131 255.523C112.286 255.523 94.8913 252.404 78.8162 246.166C62.981 239.688 49.0652 230.69 37.0688 219.174C25.3123 207.417 16.1951 193.861 9.71706 178.506C3.23902 162.911 0 145.996 0 127.761C0 109.527 3.23902 92.732 9.71706 77.3766C16.1951 61.7813 25.3123 48.2254 37.0688 36.7089C49.0652 24.9525 62.981 15.9552 78.8162 9.71707C94.8913 3.23903 112.286 0 131 0C149.715 0 166.99 3.23903 182.825 9.71707C198.9 15.9552 212.816 24.8325 224.572 36.349C236.329 47.8655 245.446 61.4214 251.924 77.0167C258.642 92.3721 262.001 109.287 262.001 127.761C262.001 146.236 258.642 163.271 251.924 178.866C245.446 194.221 236.329 207.657 224.572 219.174C212.816 230.69 198.9 239.688 182.825 246.166C166.99 252.404 149.715 255.523 131 255.523ZM131 238.608C147.076 238.608 161.951 235.849 175.627 230.33C189.303 224.812 201.179 217.014 211.256 206.937C221.333 196.86 229.131 185.104 234.649 171.668C240.407 158.232 243.286 143.597 243.286 127.761C243.286 111.686 240.407 97.0507 234.649 83.8547C229.131 70.4187 221.333 58.6623 211.256 48.5853C201.179 38.5084 189.303 30.7107 175.627 25.1924C161.951 19.6741 147.076 16.9149 131 16.9149C114.925 16.9149 100.05 19.6741 86.3739 25.1924C72.698 30.7107 60.7016 38.5084 50.3848 48.5853C40.3078 58.6623 32.3902 70.4187 26.632 83.8547C21.1136 97.0507 18.3545 111.686 18.3545 127.761C18.3545 143.597 21.1136 158.232 26.632 171.668C32.3902 185.104 40.3078 196.86 50.3848 206.937C60.7016 217.014 72.698 224.812 86.3739 230.33C100.05 235.849 114.925 238.608 131 238.608Z" />
       <path d="M424.922 211.508L423.968 188.221L499.746 110.152H521.506L462.907 171.997L452.218 183.831L424.922 211.508ZM408.125 243.767V110.152H427.213V243.767H408.125ZM502.8 243.767L448.018 180.014L460.807 165.889L525.133 243.767H502.8Z" />
       <path d="M250 243.767L310.508 110.152H329.405L390.104 243.767H370.062L316.044 120.841H323.679L269.66 243.767H250ZM275.769 210.363L280.922 195.093H356.128L361.664 210.363H275.769Z" />
@@ -709,7 +568,7 @@
       <span class="l3">CELLAR</span>
     </div>
 
-    <div class="divider claret-diamond"><span class="diamond"></span></div>
+    <div class="divider"><span class="diamond"></span></div>
 
     <p class="aside">Meet us downstairs.</p>
     <p class="caps date">Wednesday · December 9 · 2026 · 5 Until 8 O'Clock</p>
@@ -722,56 +581,8 @@
   </div>
 </header>
 
-<!-- ============ SEAL SYMBOL (gold wax + Oak "O" emboss) ============ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="waxSealSymbol" viewBox="0 0 120 120">
-    <!-- irregular hand-poured blob -->
-    <path class="seal-blob" fill="url(#waxGrad)"
-      d="M60 8
-         C72 6 74 15 84 18
-         C94 21 99 17 104 26
-         C108 34 102 40 105 50
-         C108 59 116 60 114 70
-         C112 79 103 78 99 87
-         C95 96 99 103 89 106
-         C80 109 76 101 66 103
-         C57 105 55 114 45 112
-         C36 110 39 101 31 96
-         C23 91 15 95 12 85
-         C9 76 17 72 16 62
-         C15 52 7 50 10 40
-         C13 31 22 34 27 26
-         C32 18 28 10 38 8
-         C47 6 48 10 60 8 Z"
-      style="filter: drop-shadow(0 3px 5px rgba(0,0,0,.35));" />
-    <!-- wax drips -->
-    <path fill="url(#waxGrad)" d="M99 87 c4 4 7 12 3 16 c-4 4-9-1-8-7 c1-4 3-6 5-9 Z" opacity="0.96" />
-    <path fill="url(#waxGrad)" d="M31 96 c-3 3-4 9-1 11 c3 2 6-2 6-6 c0-3-2-4-5-5 Z" opacity="0.9" />
-
-    <!-- Oak "O" pressed into the wax: shadow copy (down-right) -->
-    <path fill-rule="evenodd" fill="#6E5320" transform="translate(34.6 34.25) scale(0.2)"
-      d="M131 255.523C112.286 255.523 94.8913 252.404 78.8162 246.166C62.981 239.688 49.0652 230.69 37.0688 219.174C25.3123 207.417 16.1951 193.861 9.71706 178.506C3.23902 162.911 0 145.996 0 127.761C0 109.527 3.23902 92.732 9.71706 77.3766C16.1951 61.7813 25.3123 48.2254 37.0688 36.7089C49.0652 24.9525 62.981 15.9552 78.8162 9.71707C94.8913 3.23903 112.286 0 131 0C149.715 0 166.99 3.23903 182.825 9.71707C198.9 15.9552 212.816 24.8325 224.572 36.349C236.329 47.8655 245.446 61.4214 251.924 77.0167C258.642 92.3721 262.001 109.287 262.001 127.761C262.001 146.236 258.642 163.271 251.924 178.866C245.446 194.221 236.329 207.657 224.572 219.174C212.816 230.69 198.9 239.688 182.825 246.166C166.99 252.404 149.715 255.523 131 255.523ZM131 238.608C147.076 238.608 161.951 235.849 175.627 230.33C189.303 224.812 201.179 217.014 211.256 206.937C221.333 196.86 229.131 185.104 234.649 171.668C240.407 158.232 243.286 143.597 243.286 127.761C243.286 111.686 240.407 97.0507 234.649 83.8547C229.131 70.4187 221.333 58.6623 211.256 48.5853C201.179 38.5084 189.303 30.7107 175.627 25.1924C161.951 19.6741 147.076 16.9149 131 16.9149C114.925 16.9149 100.05 19.6741 86.3739 25.1924C72.698 30.7107 60.7016 38.5084 50.3848 48.5853C40.3078 58.6623 32.3902 70.4187 26.632 83.8547C21.1136 97.0507 18.3545 111.686 18.3545 127.761C18.3545 143.597 21.1136 158.232 26.632 171.668C32.3902 185.104 40.3078 196.86 50.3848 206.937C60.7016 217.014 72.698 224.812 86.3739 230.33C100.05 235.849 114.925 238.608 131 238.608Z" />
-    <!-- highlight copy (up-left) -->
-    <path fill-rule="evenodd" fill="#F0DCA4" opacity="0.55" transform="translate(33.0 32.65) scale(0.2)"
-      d="M131 255.523C112.286 255.523 94.8913 252.404 78.8162 246.166C62.981 239.688 49.0652 230.69 37.0688 219.174C25.3123 207.417 16.1951 193.861 9.71706 178.506C3.23902 162.911 0 145.996 0 127.761C0 109.527 3.23902 92.732 9.71706 77.3766C16.1951 61.7813 25.3123 48.2254 37.0688 36.7089C49.0652 24.9525 62.981 15.9552 78.8162 9.71707C94.8913 3.23903 112.286 0 131 0C149.715 0 166.99 3.23903 182.825 9.71707C198.9 15.9552 212.816 24.8325 224.572 36.349C236.329 47.8655 245.446 61.4214 251.924 77.0167C258.642 92.3721 262.001 109.287 262.001 127.761C262.001 146.236 258.642 163.271 251.924 178.866C245.446 194.221 236.329 207.657 224.572 219.174C212.816 230.69 198.9 239.688 182.825 246.166C166.99 252.404 149.715 255.523 131 255.523ZM131 238.608C147.076 238.608 161.951 235.849 175.627 230.33C189.303 224.812 201.179 217.014 211.256 206.937C221.333 196.86 229.131 185.104 234.649 171.668C240.407 158.232 243.286 143.597 243.286 127.761C243.286 111.686 240.407 97.0507 234.649 83.8547C229.131 70.4187 221.333 58.6623 211.256 48.5853C201.179 38.5084 189.303 30.7107 175.627 25.1924C161.951 19.6741 147.076 16.9149 131 16.9149C114.925 16.9149 100.05 19.6741 86.3739 25.1924C72.698 30.7107 60.7016 38.5084 50.3848 48.5853C40.3078 58.6623 32.3902 70.4187 26.632 83.8547C21.1136 97.0507 18.3545 111.686 18.3545 127.761C18.3545 143.597 21.1136 158.232 26.632 171.668C32.3902 185.104 40.3078 196.86 50.3848 206.937C60.7016 217.014 72.698 224.812 86.3739 230.33C100.05 235.849 114.925 238.608 131 238.608Z" />
-
-    <!-- curved embossed text -->
-    <path id="sealTextPath" d="M60 24 a35 35 0 1 1 -0.1 0" fill="none" />
-    <text font-family="Montserrat, sans-serif" font-size="6.4" font-weight="600" letter-spacing="1.4" fill="#6E5320">
-      <textPath href="#sealTextPath" startOffset="4%" class="seal-curve-text">CHRISTMAS IN THE CELLAR · MMXXVI</textPath>
-    </text>
-    <text font-family="Montserrat, sans-serif" font-size="6.4" font-weight="600" letter-spacing="1.4" fill="#F0DCA4" opacity="0.5" transform="translate(-0.6 -0.6)">
-      <textPath href="#sealTextPath" startOffset="4%" class="seal-curve-text-hi">CHRISTMAS IN THE CELLAR · MMXXVI</textPath>
-    </text>
-  </symbol>
-</svg>
-
 <!-- ============ THE NIGHT (Main Event) ============ -->
-<section class="band night">
-  <!-- Wine-cellar photo backdrop + navy overlay -->
-  <div class="section-photo" style="background-image:url('assets/cellar-room.jpg')"></div>
-  <div class="cellar-overlay"></div>
-
+<section class="band night paper">
   <div class="wrap center stack reveal">
     <p class="eyebrow">The Main Event</p>
     <h2 class="serif-head">The Wine Cellar at Del Frisco's</h2>
@@ -783,6 +594,13 @@
       <br />Wednesday, December 9, 2026 · 5:00–8:00 PM
     </p>
     <p class="closing dim">Dinner, a private bar, and a toast or two, all underground.</p>
+
+    <!-- a single contained peek into the cellar -->
+    <div class="event-window">
+      <video class="event-video" autoplay muted loop playsinline poster="assets/cellar-room.jpg">
+        <source src="assets/header.mp4" type="video/mp4" />
+      </video>
+    </div>
   </div>
 </section>
 
@@ -825,7 +643,7 @@
 </section>
 
 <!-- ============ HOTEL ============ -->
-<section class="band hotel">
+<section class="band hotel paper">
   <div class="wrap center stack reveal">
     <p class="eyebrow">Where You're Staying</p>
     <h2 class="serif-head">Renaissance Charlotte SouthPark</h2>
@@ -838,9 +656,6 @@
 
 <!-- ============ RSVP ============ -->
 <section class="band rsvp">
-  <div class="section-photo" style="background-image:url('assets/cellar-bottles.jpg')"></div>
-  <div class="rsvp-photo-overlay"></div>
-  <div class="glow"></div>
   <div class="rsvp-card reveal">
     <p class="eyebrow">The Cellar List</p>
     <h2 class="serif-head">Save your seat by the candlelight.</h2>
@@ -980,16 +795,16 @@
   "use strict";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* Header video: pause for reduced motion, otherwise nudge autoplay along */
-  var heroVideo = document.querySelector(".hero-video");
-  if (heroVideo) {
+  /* Cellar video: pause for reduced motion, otherwise nudge autoplay along */
+  var reelVideo = document.querySelector(".event-video");
+  if (reelVideo) {
     if (reduceMotion) {
-      heroVideo.removeAttribute("autoplay");
-      heroVideo.pause();
+      reelVideo.removeAttribute("autoplay");
+      reelVideo.pause();
     } else {
-      var tryPlay = function () { var p = heroVideo.play(); if (p && p.catch) p.catch(function () {}); };
+      var tryPlay = function () { var p = reelVideo.play(); if (p && p.catch) p.catch(function () {}); };
       tryPlay();
-      heroVideo.addEventListener("canplay", tryPlay, { once: true });
+      reelVideo.addEventListener("canplay", tryPlay, { once: true });
       var onGesture = function () {
         tryPlay();
         window.removeEventListener("pointerdown", onGesture);
@@ -1100,8 +915,7 @@
   function pressSeal() {
     if (reduceMotion) return;
     sealBtn.classList.add("pressing");
-    setTimeout(function () { sealBtn.classList.add("squish"); }, 90);
-    setTimeout(function () { sealBtn.classList.remove("pressing", "squish"); }, 400);
+    setTimeout(function () { sealBtn.classList.remove("pressing"); }, 400);
   }
 
   function showSuccess() {
@@ -1137,9 +951,6 @@
 
     var hasEndpoint = FORM_ENDPOINT && FORM_ENDPOINT.indexOf("REPLACE_WITH") === -1;
     if (hasEndpoint) {
-      // Google Apps Script web app: send as a "simple" text/plain request (no CORS
-      // preflight). The response is opaque under no-cors, so we optimistically
-      // confirm once the request completes; the script still records the row.
       fetch(FORM_ENDPOINT, {
         method: "POST",
         mode: "no-cors",
