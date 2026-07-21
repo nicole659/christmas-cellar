@@ -103,13 +103,30 @@
     opacity: 0.55;
   }
   .divider .diamond {
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
     background: var(--claret);
+    box-shadow: 0 0 0 1px rgba(176, 141, 62, 0.75);
     transform: rotate(45deg);
-    margin: 0 12px;
+    margin: 0 13px;
   }
   .center .divider { margin-left: auto; margin-right: auto; }
+
+  /* flourished eyebrow — short gold rules flank the label */
+  .center .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    text-indent: 0;
+  }
+  .center .eyebrow::before,
+  .center .eyebrow::after {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: var(--brass);
+    opacity: 0.55;
+  }
 
   /* ---------- Section scaffolding ---------- */
   section { position: relative; }
@@ -121,24 +138,48 @@
 
   /* ---------- HERO (cream invitation) ---------- */
   .hero {
+    position: relative;
+    overflow: hidden;
     min-height: 100vh;
     min-height: 100svh;
-    background: var(--cream);
+    background: var(--navy);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 56px 22px;
+    padding: 64px 24px;
+  }
+  /* moody cellar video, behind the invitation card */
+  .hero-video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: radial-gradient(ellipse 80% 68% at 50% 42%,
+        rgba(9,26,38,0.40) 0%, rgba(9,26,38,0.60) 58%, rgba(9,26,38,0.82) 100%);
   }
   .hero-frame {
     position: relative;
-    width: min(760px, 100%);
+    z-index: 2;
+    width: min(670px, 100%);
     margin: 0 auto;
-    padding: clamp(46px, 6vw, 74px) clamp(26px, 6vw, 74px) clamp(60px, 7vw, 82px);
+    padding: clamp(52px, 6vw, 80px) clamp(32px, 6vw, 72px) clamp(66px, 7vw, 88px);
     background: var(--paper);
     border: 1px solid var(--brass);
-    box-shadow: 0 0 0 6px var(--cream), 0 0 0 7px rgba(14, 36, 51, 0.16), 0 30px 70px rgba(14, 36, 51, 0.07);
+    box-shadow:
+      inset 0 0 0 5px var(--paper),
+      inset 0 0 0 6px rgba(176, 141, 62, 0.42),
+      0 44px 100px rgba(9, 26, 38, 0.6);
     text-align: center;
   }
+
+  /* gold filigree corner ornaments on the cards */
+  .corner { position: absolute; width: 40px; height: 40px; color: var(--brass); pointer-events: none; z-index: 3; }
+  .corner.tl { top: 16px; left: 16px; }
+  .corner.tr { top: 16px; right: 16px; transform: scaleX(-1); }
+  .corner.bl { bottom: 16px; left: 16px; transform: scaleY(-1); }
+  .corner.br { bottom: 16px; right: 16px; transform: scale(-1, -1); }
 
   .oak-logo { display: block; margin: 0 auto 26px; width: min(196px, 50%); height: auto; }
 
@@ -306,14 +347,18 @@
   /* ---------- RSVP (light invitation card) ---------- */
   .rsvp { background: var(--cream); }
   .rsvp-card {
+    position: relative;
     width: min(580px, 100%);
     margin: 0 auto;
     background: var(--paper);
     color: var(--navy);
-    border: 1px solid rgba(176, 141, 62, 0.45);
-    padding: clamp(38px, 6vw, 60px) clamp(26px, 5vw, 52px) clamp(44px, 6vw, 60px);
+    border: 1px solid var(--brass);
+    padding: clamp(44px, 6vw, 64px) clamp(30px, 5vw, 54px) clamp(46px, 6vw, 62px);
     text-align: center;
-    box-shadow: 0 24px 60px rgba(14, 36, 51, 0.1);
+    box-shadow:
+      inset 0 0 0 5px var(--paper),
+      inset 0 0 0 6px rgba(176, 141, 62, 0.35),
+      0 26px 64px rgba(14, 36, 51, 0.12);
   }
 
   form.rsvp-form { text-align: left; margin-top: 38px; }
@@ -552,9 +597,26 @@
 </head>
 <body>
 
+<!-- corner-ornament symbol (reused on the cards) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="cornerOrn" viewBox="0 0 40 40">
+    <path d="M1 22 V9 C1 4 4 1 9 1 H22" fill="none" stroke="currentColor" stroke-width="1.3" />
+    <path d="M8 22 V14 C8 10 10 8 14 8 H22" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5" />
+    <circle cx="8" cy="8" r="1.5" fill="currentColor" />
+  </symbol>
+</svg>
+
 <!-- ============ HERO ============ -->
 <header class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="assets/cellar-tunnel.jpg">
+    <source src="assets/header.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay"></div>
   <div class="hero-frame">
+    <svg class="corner tl" aria-hidden="true"><use href="#cornerOrn" /></svg>
+    <svg class="corner tr" aria-hidden="true"><use href="#cornerOrn" /></svg>
+    <svg class="corner bl" aria-hidden="true"><use href="#cornerOrn" /></svg>
+    <svg class="corner br" aria-hidden="true"><use href="#cornerOrn" /></svg>
     <!-- OAK wordmark -->
     <svg class="oak-logo" viewBox="0 0 527 256" xmlns="http://www.w3.org/2000/svg" aria-label="Oak" fill="var(--navy)">
       <path d="M131 255.523C112.286 255.523 94.8913 252.404 78.8162 246.166C62.981 239.688 49.0652 230.69 37.0688 219.174C25.3123 207.417 16.1951 193.861 9.71706 178.506C3.23902 162.911 0 145.996 0 127.761C0 109.527 3.23902 92.732 9.71706 77.3766C16.1951 61.7813 25.3123 48.2254 37.0688 36.7089C49.0652 24.9525 62.981 15.9552 78.8162 9.71707C94.8913 3.23903 112.286 0 131 0C149.715 0 166.99 3.23903 182.825 9.71707C198.9 15.9552 212.816 24.8325 224.572 36.349C236.329 47.8655 245.446 61.4214 251.924 77.0167C258.642 92.3721 262.001 109.287 262.001 127.761C262.001 146.236 258.642 163.271 251.924 178.866C245.446 194.221 236.329 207.657 224.572 219.174C212.816 230.69 198.9 239.688 182.825 246.166C166.99 252.404 149.715 255.523 131 255.523ZM131 238.608C147.076 238.608 161.951 235.849 175.627 230.33C189.303 224.812 201.179 217.014 211.256 206.937C221.333 196.86 229.131 185.104 234.649 171.668C240.407 158.232 243.286 143.597 243.286 127.761C243.286 111.686 240.407 97.0507 234.649 83.8547C229.131 70.4187 221.333 58.6623 211.256 48.5853C201.179 38.5084 189.303 30.7107 175.627 25.1924C161.951 19.6741 147.076 16.9149 131 16.9149C114.925 16.9149 100.05 19.6741 86.3739 25.1924C72.698 30.7107 60.7016 38.5084 50.3848 48.5853C40.3078 58.6623 32.3902 70.4187 26.632 83.8547C21.1136 97.0507 18.3545 111.686 18.3545 127.761C18.3545 143.597 21.1136 158.232 26.632 171.668C32.3902 185.104 40.3078 196.86 50.3848 206.937C60.7016 217.014 72.698 224.812 86.3739 230.33C100.05 235.849 114.925 238.608 131 238.608Z" />
@@ -594,13 +656,6 @@
       <br />Wednesday, December 9, 2026 · 5:00–8:00 PM
     </p>
     <p class="closing dim">Dinner, a private bar, and a toast or two, all underground.</p>
-
-    <!-- a single contained peek into the cellar -->
-    <div class="event-window">
-      <video class="event-video" autoplay muted loop playsinline poster="assets/cellar-room.jpg">
-        <source src="assets/header.mp4" type="video/mp4" />
-      </video>
-    </div>
   </div>
 </section>
 
@@ -657,6 +712,10 @@
 <!-- ============ RSVP ============ -->
 <section class="band rsvp">
   <div class="rsvp-card reveal">
+    <svg class="corner tl" aria-hidden="true"><use href="#cornerOrn" /></svg>
+    <svg class="corner tr" aria-hidden="true"><use href="#cornerOrn" /></svg>
+    <svg class="corner bl" aria-hidden="true"><use href="#cornerOrn" /></svg>
+    <svg class="corner br" aria-hidden="true"><use href="#cornerOrn" /></svg>
     <p class="eyebrow">The Cellar List</p>
     <h2 class="serif-head">Save your seat by the candlelight.</h2>
     <p class="caps" style="margin-top:16px;">Kindly RSVP by October 31</p>
@@ -795,8 +854,8 @@
   "use strict";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* Cellar video: pause for reduced motion, otherwise nudge autoplay along */
-  var reelVideo = document.querySelector(".event-video");
+  /* Header video: pause for reduced motion, otherwise nudge autoplay along */
+  var reelVideo = document.querySelector(".hero-video");
   if (reelVideo) {
     if (reduceMotion) {
       reelVideo.removeAttribute("autoplay");
